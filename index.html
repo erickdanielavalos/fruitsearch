@@ -1,71 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruit Search</title>
-    <style>
-       body {
-            background: linear-gradient(100deg, Orange, red, yellow);
-            background-size: 100% 100%;
-            background-attachment: fixed;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-     
-        .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 7.50px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-           
-        }
-
-        #search {
-            border: 1px, solid, white;
-            padding: 10px;
-            font-size: 18px;
-            background: rgba(22, 5, 4, 0.461);
-            color: white;
-            width: 250px;
-            text-align: center;
-            margin-bottom: 5px;
-            outline: none;
-        }
-
-        #search::placeholder {
-            color: #fff;
-           
-        }
-
-        #results {
-            display: none;
-            background: rgba(22, 5, 4, 0.461);
-            border: 1px solid #ddd;
-            max-height: 150px;
-            overflow-y: auto;
-        }
-
-        #results li {
-            padding: 5px;
-            cursor: pointer;
-            list-style-type: none;
-            font-size:20px ;
-            color: #ece4e4;
-            
-
-        }
-        
-        
-        #results li:hover {
-            background-color: #c0c0c0;
-        }
-        #submit {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container" >
@@ -79,50 +18,6 @@
         <ul id="results-list"></ul>
     </div>
 </div>
-    <script>
-        var searchInput = document.getElementById("search");
-        var resultsList = document.getElementById("results-list");
-
-        let fruits = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
-
-        function search() {
-            var userInput = searchInput.value.toLowerCase();
-
-            resultsList.innerHTML = "";
-
-            var results = fruits.filter(function(fruit) {
-                return fruit.toLowerCase().includes(userInput);
-            });
-
-            results.forEach(function(result) {
-                var li = document.createElement("li");
-                li.textContent = result;
-                li.addEventListener("click", function() {
-                    useSuggestion(result);
-                    resultsList.innerHTML = "";
-                });
-                resultsList.appendChild(li);
-
-                li.addEventListener("mouseover", function() {
-                    li.style.backgroundColor = "#c0c0c0";
-                });
-                li.addEventListener("mouseout", function() {
-                    li.style.backgroundColor = "";
-                });
-            });
-
-            if (results.length > 0) {
-                document.getElementById("results").style.display = "block";
-            } else {
-                document.getElementById("results").style.display = "none";
-            }
-        }
-
-        function useSuggestion(suggestion) {
-            searchInput.value = suggestion;
-        }
-
-        searchInput.addEventListener("input", search);
-    </script>
+ <script src="script.js" ></script>
 </body>
 </html>
